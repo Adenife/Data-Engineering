@@ -1,0 +1,24 @@
+Project steps.
+
+1. Installing airflow:
+    - pip install "apache-airflow[celery]==2.6.3" --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-2.6.3/constraints-3.7.txt"
+    - airflow users  create --role Admin --username admin --email admin --firstname admin --lastname admin --password admin
+
+2. Running airflow locally
+    - airflow standalone
+
+3. Configuring folder path
+    - nano ~/airflow/airflow.cfg (configure dags folder)
+
+4. Create your db
+    - sqlite3 dbname.db
+    - .databases (list db's)
+    - .quit
+
+5. Create db connection
+    - airflow connections add --conn-id postgresdb --conn-type postgres --host localhost --port 5432 --username postgres --password postgres
+    - airflow connections add 'somename' --conn-type 'sqlite' --conn-host './database.db'
+    - airflow connections get somename
+
+6. Install pandas
+    - pip install apache-airflow[pandas]
